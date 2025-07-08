@@ -1,11 +1,6 @@
 package com.selimhorri.app.repository;
 
+import com.selimhorri.app.domain.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.selimhorri.app.domain.Category;
-
-public interface CategoryRepository extends JpaRepository<Category, Integer> {
-	
-	
-	
-}
+public interface CategoryRepository extends JpaRepository<Category, Integer> {}

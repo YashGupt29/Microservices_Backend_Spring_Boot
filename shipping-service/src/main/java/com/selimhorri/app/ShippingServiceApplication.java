@@ -10,26 +10,16 @@ import org.springframework.web.bind.annotation.RestController;
 @EnableEurekaClient
 public class ShippingServiceApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ShippingServiceApplication.class, args);
-	}
-	
-	
-	
+  public static void main(String[] args) {
+    SpringApplication.run(ShippingServiceApplication.class, args);
+  }
 }
 
 @RestController
 class ShippingController {
-	
-	@GetMapping
-	public String msg() {
-		return "shipping controller responding!!";
-	}
-	
+
+  @GetMapping
+  public String msg() {
+    return "shipping controller responding!!";
+  }
 }
-
-
-
-
-
-

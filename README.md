@@ -1,6 +1,5 @@
 # e-Commerce-boot μServices 
 
-## Important Note: This project's new milestone is to move The whole system to work on Kubernetes, so stay tuned.
 
 <!--## Better Code Hub
 I analysed this repository according to the clean code standards on [Better Code Hub](https://bettercodehub.com/) just to get an independent opinion of how bad the code is. Surprisingly, the compliance score is high!
@@ -60,11 +59,6 @@ The following are the initially required software pieces:
 
 1. **Docker**: The fastest way to containerize applications on your desktop, and you can download it from here [https://www.docker.com/products/docker-desktop](https://www.docker.com/products/docker-desktop)
 
-1. **Kubernetes**: We can install **minikube** for testing puposes https://minikube.sigs.k8s.io/docs/start/
-
-   > For each future stage, I will list the newly required software. 
-
-Follow the installation guide for each software website link and check your software versions from the command line to verify that they are all installed correctly.
 
 ## Using an IDE
 
@@ -76,14 +70,12 @@ All that you want to do is just fire up your IDE **->** open or import the paren
 ### Entity-Relationship-Diagram
 ![System Boundary](ecommerce-ERD.drawio.png)
 
-## Playing With e-Commerce-boot Project
-
 ### Cloning It
 
 The first thing to do is to open **git bash** command line, and then simply you can clone the project under any of your favorite places as the following:
 
 ```bash
-> git clone https://github.com/SelimHorri/ecommerce-microservice-backend-app.git
+> git clone https://github.com/YashGupt29/Microservices_Backend_Spring_Boot.git
 ```
 
 ### Build & Test Them In Isolation
@@ -95,7 +87,7 @@ Now it is the time to build our **10 microservices** and run each service integr
  isolation by running the following commands:
 
 ```bash
-selim@:~/ecommerce-microservice-backend-app$ ./mvnw clean package 
+yash29082002@:~/ecommerce-microservice-backend-app$ ./mvnw clean package 
 ```
 
 All build commands and test suite for each microservice should run successfully, and the final output should be like this:
@@ -128,7 +120,7 @@ All build commands and test suite for each microservice should run successfully,
 Now it's the time to run all of our Microservices, and it's straightforward just run the following `docker-compose` commands:
 
 ```bash
-selim@:~/ecommerce-microservice-backend-app$ docker-compose -f compose.yml up
+yash29082002@:~/ecommerce-microservice-backend-app$ docker-compose -f compose.yml up
 ```
 
 All the **services**, **databases**, and **messaging service** will run in parallel in detach mode (option `-d`), and command output will print to the console the following:
@@ -435,7 +427,7 @@ jvm_gc_max_data_size_bytes 5.182062592E9
 From ecommerce front Service proxy we can check all the core services health when you have all the
  microservices up and running using Docker Compose,
 ```bash
-selim@:~/ecommerce-microservice-backend-app$ curl -k https://localhost:8443/actuator/health -s | jq .components."\"Core Microservices\""
+yash29082002@:~/ecommerce-microservice-backend-app$ curl -k https://localhost:8443/actuator/health -s | jq .components."\"Core Microservices\""
 ```
 This will result in the following response:
 ```json
@@ -529,7 +521,7 @@ Now it's time to test all the application functionality as one part. To do so ju
  the following automation test script:
 
 ```bash
-selim@:~/ecommerce-microservice-backend-app$ ./test-em-all.sh start
+yash29082002@:~/ecommerce-microservice-backend-app$ ./test-em-all.sh start
 ```
 > You can use `stop` switch with `start`, that will 
 >1. start docker, 
@@ -587,35 +579,4 @@ Now, you can now track Microservices interactions throughout Zipkin UI from the 
 [http://localhost:9411/zipkin/](http://localhost:9411/zipkin/)
 ![Zipkin UI](zipkin-dash.png)
 
-### Closing The Story
-
-Finally, to close the story, we need to shut down Microservices manually service by service, hahaha just kidding, run the following command to shut them all:
-
-```bash
-selim@:~/ecommerce-microservice-backend-app$ docker-compose -f compose.yml down --remove-orphans
-```
- And you should see output like the following:
-
-```bash
-Removing ecommerce-microservice-backend-app_payment-service-container_1   ... done
-Removing ecommerce-microservice-backend-app_zipkin-container_1            ... done
-Removing ecommerce-microservice-backend-app_service-discovery-container_1 ... done
-Removing ecommerce-microservice-backend-app_product-service-container_1   ... done
-Removing ecommerce-microservice-backend-app_cloud-config-container_1      ... done
-Removing ecommerce-microservice-backend-app_proxy-client-container_1      ... done
-Removing ecommerce-microservice-backend-app_order-service-container_1     ... done
-Removing ecommerce-microservice-backend-app_user-service-container_1      ... done
-Removing ecommerce-microservice-backend-app_shipping-service-container_1  ... done
-Removing ecommerce-microservice-backend-app_api-gateway-container_1       ... done
-Removing ecommerce-microservice-backend-app_favourite-service-container_1 ... done
-Removing network ecommerce-microservice-backend-app_default
-```
-### The End
-In the end, I hope you enjoyed the application and find it useful, as I did when I was developing it. 
-If you would like to enhance, please: 
-- **Open PRs**, 
-- Give **feedback**, 
-- Add **new suggestions**, and
-- Finally, give it a 🌟.
-
-*Happy Coding ...* 🙂
+Thank you for reading the readme!!
